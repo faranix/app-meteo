@@ -52,6 +52,14 @@ body {
     text-align: center;
 }
 
+.temps {
+    text-transform: capitalize;
+}
+
+.image-temps {
+    width: 8rem;
+}
+
 
 /* FOOTER */ 
 
@@ -66,7 +74,48 @@ body {
     padding: 25px 0px;
 }
 
-.test {
+.futur-heure {
     color: #f1f1f1;
     text-align: center;
+}
+
+.futur-temperature {
+    color: #f1f1f1;
+    text-align: center;
+}
+
+.futur-prevision-jour {
+    color: #f1f1f1;
+    text-align: center;
+}
+
+.futur-prevision-temperature {
+    color: #f1f1f1;
+    text-align: center;
+}
+
+
+/* MEDIA QUERY */ 
+
+@media screen and (max-width: 767px) {
+    #app {
+        height: 100%;
+    }
+
+    #header {
+        height: 150px;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    #main {
+        height: 575px;
+        border-bottom: 1px solid #f1f1f1;
+    }
+
+    #footer {
+        display: none;
+    }
 }
