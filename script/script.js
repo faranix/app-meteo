@@ -22,8 +22,6 @@ function meteoApi(longitude, latitude) {
  * Permet de changer les données en fonction des data reçu 
  */
 function changeHtml(data) {
-    console.log(data)
-
     const temps = document.querySelector('.temps');
     const temperature = document.querySelector('.temperature');
     const localisation = document.querySelector('.localisation');

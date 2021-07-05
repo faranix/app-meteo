@@ -1,1 +1,12 @@
-# app-meteo# app-meteo
+# app-meteo
+
+## Technologies
+
+### Frontend
+
+- Bootstrap
+- HTML
+- CSS
+- Javascript
+
+
