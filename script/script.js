@@ -1,8 +1,6 @@
 // Les Imports
 import tabJoursEnOrdre from './Utilitaire/gestionTemps.js';
 
-console.log(tabJoursEnOrdre);
-
 /**
  * Fetch API Méteo
  */
@@ -24,6 +22,8 @@ function meteoApi(longitude, latitude) {
  * Permet de changer les données en fonction des data reçu 
  */
 function changeHtml(data) {
+    console.log(data)
+
     const temps = document.querySelector('.temps');
     const temperature = document.querySelector('.temperature');
     const localisation = document.querySelector('.localisation');
@@ -31,6 +31,8 @@ function changeHtml(data) {
     const futurTemperature = document.querySelectorAll('.futur-temperature');
     const futurPrevisionJour = document.querySelectorAll('.futur-prevision-jour');
     const futurPrevisionTemperature = document.querySelectorAll('.futur-prevision-temperature');
+    const imageTemps = document.querySelector('.image-temps');
+
 
     // Obtenir l'heure actuelle 
     let heureActuelle = new Date().getHours();
@@ -68,6 +70,12 @@ function changeHtml(data) {
         futurPrevisionTemperature[k].innerHTML = `${Math.trunc(data.daily[k + 1].temp.day)}°C`;
     }
 
+    // Afficher une image en svg 
+    if (heureActuelle >= 6 && heureActuelle < 21) {
+        imageTemps.setAttribute('src', `./ressources/jour/${data.current.weather[0].icon}.svg`);
+    } else {
+        imageTemps.setAttribute('src', `./ressources/nuit/${data.current.weather[0].icon}.svg`);
+    }
 }
 
 
@@ -85,8 +93,6 @@ window.addEventListener('load', () => {
                 meteoApi(longitude, latitude);
             }
         });        
-
-        console.log(geolocationUser);
     } else {
         alert("Vous avez refuser la localisation !");
     }
